@@ -1,10 +1,12 @@
 module UI where
 
-import Data.Matrix
 import Types
+
+import Data.Matrix
+
+import Brick
 import Brick.Main
 import Graphics.Vty
-import Brick
 
 app :: App Game Tick Name
 app = App { appDraw = drawGame
