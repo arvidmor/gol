@@ -12,6 +12,15 @@ insertBlinker row column game = game {grid =
     $ setElem (Cell (row+1, column) True) (row+1, column)
     $ setElem (Cell (row, column) True) (row, column) (grid game)}
 
+insertGlider :: Int -> Int -> Game -> Game
+insertGlider row column game = game {grid = 
+
+      setElem (Cell (row, column+2) True) (row, column+2)
+    $ setElem (Cell (row+1, column+2) True) (row+1, column+2)
+    $ setElem (Cell (row+2, column+1) True) (row+2, column+1)
+    $ setElem (Cell (row+2, column+2) True) (row+2, column+2)
+    $ setElem (Cell (row+1, column) True) (row+1, column) (grid game)}
+
 spawn :: Coord -> Game -> Game
 spawn (r, c) game = game {grid = setElem (Cell (r, c) True) (r, c) (grid game)}
 
