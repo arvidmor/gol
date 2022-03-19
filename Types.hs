@@ -12,8 +12,12 @@ type Grid = Matrix Cell
 
 data Game = Game {
     grid    :: Grid, 
-    paused  :: Bool
+    paused  :: Bool,
+    size    :: (Int, Int),
+    focused :: Coord
 } deriving Show
+
+data Direction  = Up | Down | Left | Right  deriving (Show, Eq)
 
 data Tick = Tick
 
