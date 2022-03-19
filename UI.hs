@@ -77,7 +77,7 @@ drawGrid game = renderTable
     $ toList (grid game)
 
 drawEditor :: Game -> [Widget Name]
-drawEditor game = [drawGridEditor game]
+drawEditor game = [drawGridEditor game <+> drawHelp]
 
 drawGridEditor :: Game -> Widget Name
 drawGridEditor game = renderTable 
@@ -85,8 +85,6 @@ drawGridEditor game = renderTable
     $ chunksOf (snd (size game))
     $ map (drawCellCursor game)
     $ toList (grid game)
-
-
 
 drawCell ::  Cell -> Widget Name
 drawCell (Cell coord alive)  = 
@@ -98,3 +96,10 @@ drawCellCursor game (Cell coord alive)
     | alive                             = withAttr aliveAttr $ str "███"
     | coord == focused game             = withAttr focusedAttr $ str "   "
     | otherwise                         = str "   "
+
+drawHelp :: Widget Name
+drawHelp = border $ vBox [
+    str "Welcome to the Game of life editor!",
+    str "Controls",
+    str "Navigate: ↑ ↓ → ←"
+    ]
