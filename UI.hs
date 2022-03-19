@@ -101,5 +101,6 @@ drawHelp :: Widget Name
 drawHelp = border $ vBox [
     str "Welcome to the Game of life editor!",
     str "Controls",
-    str "Navigate: ↑ ↓ → ←"
+    str "Navigate: ↑ ↓ → ←",
+    str "Quit and start the simulation: q"
     ]
