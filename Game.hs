@@ -8,14 +8,14 @@ import Prelude hiding (Right, Left)
 emptyGame :: Int -> Int -> Game
 emptyGame rows columns = Game {grid = matrix rows columns (\(r, c) -> Cell (r, c) False), paused = False, size = (rows, columns), focused = (rows `div` 2, columns `div` 2)}
 
-insertBlinker :: Int -> Int -> Game -> Game
-insertBlinker row column game = game {grid =
+insertBlinker :: Coord -> Game -> Game
+insertBlinker (row, column) game = game {grid =
       setElem (Cell (row+2, column) True) (row+2, column)
     $ setElem (Cell (row+1, column) True) (row+1, column)
     $ setElem (Cell (row, column) True) (row, column) (grid game)}
 
-insertGlider :: Int -> Int -> Game -> Game
-insertGlider row column game = game {grid =
+insertGlider :: Coord -> Game -> Game
+insertGlider (row, column) game = game {grid =
       setElem (Cell (row, column+2) True) (row, column+2)
     $ setElem (Cell (row+1, column+2) True) (row+1, column+2)
     $ setElem (Cell (row+2, column+1) True) (row+2, column+1)

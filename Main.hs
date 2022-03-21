@@ -1,13 +1,13 @@
 import UI 
-import Graphics.Vty ( defaultConfig, mkVty)
-import Types ( Game, Tick(Tick) )
-import Brick.BChan ( newBChan, writeBChan )
-import Control.Concurrent (threadDelay, forkIO)
-import Control.Monad (forever, void)
-import Brick.Main (customMain, defaultMain)
-import Game (emptyGame, insertBlinker, insertGlider, isInteger)
-import GHC.IO.Handle (hFlush)
-import GHC.IO.FD (stdout)
+import Graphics.Vty 
+import Types 
+import Brick.BChan 
+import Control.Concurrent 
+import Control.Monad 
+import Brick.Main 
+import Game 
+import GHC.IO.Handle 
+import GHC.IO.FD 
 
 main :: IO ()
 main = do

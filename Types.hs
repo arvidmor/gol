@@ -3,7 +3,7 @@ import Data.Matrix
 
 
 --Each cell has a coord and bool to represent if they're alive or not
-data Cell = Cell Coord Bool deriving Show
+data Cell = Cell Coord Bool deriving (Show, Eq)
 
 type Coord = (Int, Int)
 

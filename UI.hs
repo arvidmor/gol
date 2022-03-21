@@ -8,7 +8,7 @@ import Data.List.Split
 import Brick hiding (Down, Up)
 import Brick.Main
 import Graphics.Vty
-import Game (nextGeneration, step, toggleCell)
+import Game (nextGeneration, step, toggleCell, insertBlinker, insertGlider)
 import Brick.Widgets.Border
 import Brick.Widgets.Border.Style (unicodeBold)
 import Brick.Widgets.Table
@@ -63,6 +63,8 @@ handleEventEditor g (VtyEvent (EvKey key [])) =
             (KChar 's')     -> step Down g
             (KChar 'a')     -> step Left g
             (KChar 'd')     -> step Right g
+            (KChar '!')     -> insertBlinker (focused g) g
+            (KChar '"')     -> insertGlider (focused g) g
             _               -> g
 handleEventEditor g _   =  continue g
 
